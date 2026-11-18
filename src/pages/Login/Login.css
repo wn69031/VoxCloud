@@ -1,0 +1,518 @@
+.auth-page {
+  min-height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+/* ==================== الشريط العلوي (الشعار + زر اللغة) ==================== */
+.top-navbar {
+  width: 100%;
+  max-width: 1100px;
+  padding: 22px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.vox-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.4);
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-brand {
+  font-size: 23px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.logo-brand span {
+  color: #2563eb;
+}
+
+.logo-sub {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+/* زر تغيير اللغة */
+.lang-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  color: #1e293b;
+  border: 1.5px solid #cbd5e1;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
+  transition: all 0.2s ease;
+}
+
+.lang-toggle-btn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.12);
+}
+
+/* ==================== القسم العلوي: بطاقة التسجيل ==================== */
+.auth-form-container {
+  width: 100%;
+  max-width: 490px;
+  padding: 10px 20px 50px;
+  z-index: 5;
+}
+
+.auth-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 36px 34px;
+  box-shadow: 0 20px 45px -12px rgba(15, 23, 42, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.auth-title-box {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.auth-title-box h1 {
+  font-size: 25px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.auth-title-box p {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* شريط التبديل (تسجيل دخول / حساب جديد) */
+.auth-tabs {
+  display: flex;
+  background-color: #f1f5f9;
+  padding: 5px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tab-btn.active {
+  background-color: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+}
+
+/* صف الاسم الأول والأخير المتجاور */
+.name-row {
+  display: flex;
+  gap: 12px;
+}
+
+.name-row .input-group {
+  flex: 1;
+}
+
+/* الحقول */
+.input-group {
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 7px;
+}
+
+.field-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-icon {
+  position: absolute;
+  color: #94a3b8;
+  transition: color 0.2s ease;
+  pointer-events: none;
+}
+
+/* ضبط موضع الأيقونة حسب اتجاه اللغة */
+[dir="rtl"] .field-icon {
+  right: 14px;
+}
+
+[dir="ltr"] .field-icon {
+  left: 14px;
+}
+
+.field-box input {
+  width: 100%;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 14.5px;
+  color: #0f172a;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+[dir="rtl"] .field-box input {
+  padding: 12.5px 42px 12.5px 40px;
+}
+
+[dir="ltr"] .field-box input {
+  padding: 12.5px 40px 12.5px 42px;
+}
+
+.field-box input:focus {
+  background-color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.field-box:focus-within .field-icon {
+  color: #2563eb;
+}
+
+.eye-btn {
+  position: absolute;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+[dir="rtl"] .eye-btn {
+  left: 12px;
+}
+
+[dir="ltr"] .eye-btn {
+  right: 12px;
+}
+
+.eye-btn:hover {
+  color: #475569;
+}
+
+/* خيارات إضافية */
+.form-utilities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 22px;
+  font-size: 13.5px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.remember-me input {
+  accent-color: #2563eb;
+  width: 16px;
+  height: 16px;
+}
+
+.forgot-link {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 13.5px;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+/* زر الإرسال الرئيسي */
+.primary-submit-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 8px 20px -6px rgba(37, 99, 235, 0.45);
+  transition: all 0.2s ease;
+}
+
+.primary-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.55);
+}
+
+/* ==================== القسم السفلي المدمج بسلاسة: العرض البصري ==================== */
+.auth-showcase-bottom {
+  width: 100%;
+  background: radial-gradient(circle at top center, #1e3a8a 0%, #0f172a 60%, #090d16 100%);
+  color: #ffffff;
+  padding: 85px 24px 65px;
+  margin-top: -45px; /* تداخل انسيابي خلف بطاقة التسجيل */
+  border-top-left-radius: 44px;
+  border-top-right-radius: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 -15px 40px rgba(15, 23, 42, 0.15);
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 340px;
+  height: 340px;
+  background: #3b82f6;
+  top: -40px;
+  left: 10%;
+}
+
+.orb-2 {
+  width: 300px;
+  height: 300px;
+  background: #6366f1;
+  bottom: -60px;
+  right: 10%;
+}
+
+.showcase-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aws-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  color: #93c5fd;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.showcase-heading {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.4;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+
+.showcase-heading span {
+  background: linear-gradient(90deg, #60a5fa, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.showcase-desc {
+  font-size: 15px;
+  color: #94a3b8;
+  line-height: 1.75;
+  max-width: 620px;
+  margin-bottom: 32px;
+}
+
+/* البطاقة الزجاجية للمحاكاة */
+.glass-preview-card {
+  width: 100%;
+  max-width: 620px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  margin-bottom: 28px;
+  text-align: start;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.file-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #e2e8f0;
+  font-weight: 600;
+}
+
+.accuracy-tag {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  padding: 4px 12px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* الموجات الصوتية المتحركة */
+.soundwave-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 44px;
+  margin-bottom: 18px;
+}
+
+.bar {
+  width: 5px;
+  background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 100%);
+  border-radius: 99px;
+  animation: pulseWave 1.3s infinite ease-in-out;
+}
+
+.bar:nth-child(1) { height: 16px; animation-delay: 0.1s; }
+.bar:nth-child(2) { height: 30px; animation-delay: 0.25s; }
+.bar:nth-child(3) { height: 42px; animation-delay: 0.4s; }
+.bar:nth-child(4) { height: 24px; animation-delay: 0.15s; }
+.bar:nth-child(5) { height: 44px; animation-delay: 0.35s; }
+.bar:nth-child(6) { height: 34px; animation-delay: 0.5s; }
+.bar:nth-child(7) { height: 20px; animation-delay: 0.2s; }
+.bar:nth-child(8) { height: 38px; animation-delay: 0.45s; }
+.bar:nth-child(9) { height: 18px; animation-delay: 0.3s; }
+
+@keyframes pulseWave {
+  0%, 100% { transform: scaleY(0.55); opacity: 0.6; }
+  50% { transform: scaleY(1.1); opacity: 1; }
+}
+
+.preview-transcript {
+  background: rgba(15, 23, 42, 0.65);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #e2e8f0;
+}
+
+[dir="rtl"] .preview-transcript {
+  border-right: 3px solid #3b82f6;
+}
+
+[dir="ltr"] .preview-transcript {
+  border-left: 3px solid #3b82f6;
+}
+
+.preview-transcript span {
+  color: #60a5fa;
+  font-weight: 700;
+}
+
+.feature-pills {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  color: #cbd5e1;
+  font-weight: 500;
+}
+
+@media (max-width: 560px) {
+  .name-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .auth-card {
+    padding: 28px 20px;
+  }
+  .showcase-heading {
+    font-size: 24px;
+  }
+}
